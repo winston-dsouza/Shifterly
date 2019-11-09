@@ -1,0 +1,38 @@
+.bg-left{
+    background-color: #fffdd0;
+    background-image: url('src/assets/login_bg.svg');
+    background-repeat: no-repeat ;
+    background-size: contain;
+    background-position: center;
+    background-size: 500px;
+}
+.bg-right{
+    background-color: #343a40;
+    padding-top: 100px;
+}
+
+.btn[type=submit]{
+    border-radius:50px;
+    background-color: #ffc107;
+
+}
+.alert{
+    padding: 1px;
+}
+.border-right{
+    border: 1px solid;
+}
+
+  #nav_edit li a{
+    text-decoration: none;
+    outline: none;
+    font-weight: 600;
+    color:  white;
+    clear:both;
+    padding: 10px;
+    margin:2px;
+  }
+
+  #nav_edit li a:hover{
+    color: #bdbdbd;
+  }

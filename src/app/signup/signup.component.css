@@ -1,0 +1,34 @@
+.bg-left{
+    background-color: #d6fdf9;
+    background-image: url('src/assets/authentication.svg');
+    background-repeat: no-repeat ;
+    background-size: contain;
+    background-position: center;
+    background-size: 500px;
+}
+.bg-right{
+    background-color: #343a40;
+    padding-top: 100px;
+}
+
+.btn[type=submit]{
+    border-radius:50px;
+    background-color: #38d39f;
+
+}
+.alert{
+    padding: 1px;
+}
+#nav_edit li a{
+    text-decoration: none;
+    outline: none;
+    font-weight: 600;
+    color:  white;
+    clear:both;
+    padding: 10px;
+    margin:2px;
+  }
+
+  #nav_edit li a:hover{
+    color: #bdbdbd;
+  }

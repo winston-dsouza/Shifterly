@@ -1,0 +1,25 @@
+<nav class=" navbar navbar-expand-lg navbar-light fixed-top shadow-sm" 
+(scroll)="onWindowScroll($event); " id="navi" > <!--router.url != '/login' -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand  p-2" routerLink="/" style="font-family: 'Kavoon';font-size: 22px;color:#ffed29">
+        <img src="/assets/logo.svg" width="30" height="30" alt="logo">
+        Shifterly
+    </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active" routerLinkActive="active">
+          <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        
+      </ul>
+      <p class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-warning my-2 my-sm-0" routerLinkActive="active" routerLink="/login">login</button>
+      </p>
+    </div>
+  </nav>

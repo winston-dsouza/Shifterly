@@ -1,0 +1,74 @@
+<div class="container-fluid  h-100">
+    <div class="row h-100">
+        <!--divisions starts-->
+        <!--left division-->
+        <div class="col-md-5 d-none d-md-block bg-left">
+            <!--<nav class="navbar " style="font-family: 'Kavoon';font-size: 22px;">
+                <a class="navbar-brand text-warning p-2"  routerLink="/">
+                    <img src="/assets/logo.svg" width="30" height="30" alt="logo">
+                    Shifterly
+                </a>
+            </nav>-->
+        </div>
+        <!--left division end-->
+        <!-- right division-->
+        <div class="col-md-7 bg-right">
+            <div class=" col-sm-7 offset-sm-3 mt-5 mb-5 ">
+
+                    <div class="text-white border-0 bg-transparent mb-3">
+                        <!--card body starts-->
+                        <div class="card-title text-center h5">
+                                <ul class="nav justify-content-center "  id="nav_edit">
+                                        <li class="nav-item" >
+                                          <a class="nav-link"  routerLink="/login" ><i class="fa fa-key p-2"></i><u>Login</u></a>
+                                        </li>
+                                       
+                                        <li class="nav-item " >
+                                          <a class="nav-link text-muted" routerLink="/signup" ><i class="fa fa-lock p-2"></i>Sign up</a>
+                                        </li>
+                                </ul>
+                          
+                        </div>
+                        <h5 class="mt-2">Welcome back,</h5>
+      
+                        <!--form starts -->
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="mt-3">
+                            <div class="form-group ">
+                                <input type="email" class="form-control" [formControl]="myForm.controls['email']" placeholder="Enter email">
+                            </div>
+                            <!--validation div for email-->
+                            <div class="alert alert-danger" *ngIf="(!myForm.controls['email'].valid ) 
+                                                && (myForm.controls['email'].touched) ">
+                                A valid email is required
+                            </div>
+                    
+                            <div class="form-group ">
+                                <input type="password" class="form-control" [formControl]="myForm.controls['password']"
+                                    placeholder="Password">
+                    
+                            </div>
+                            <!--validation div for password-->
+                            <div class="alert alert-danger" *ngIf="(!myForm.controls['password'].valid )
+                                                     && (myForm.controls['password'].touched) ">
+                                please enter password
+                            </div>
+                            <p class=" text-primary"><a>forgot password?</a></p>
+                    
+                            <button type="submit" class="btn btn-block  btn-outline-secondary" [disabled]="!myForm.valid">Login</button>
+                        </form>
+                        <!--form ends -->
+                    </div>
+                    <!--error handler-->
+                    <div class="alert alert-success mt-2" *ngIf="message.length >0">
+                        {{ message }}
+                    </div>
+                    <div class="alert alert-danger mt-2" *ngIf="userError">
+                        {{ userError.message }}
+                    </div>
+            </div>
+        </div>
+        <!-- right division-->
+        <!--divisions end-->
+    </div>
+</div>
+<!---->

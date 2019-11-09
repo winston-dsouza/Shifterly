@@ -1,0 +1,115 @@
+<div class="container-fluid  h-100">
+    <div class="row h-100">
+    <!--divisions starts-->
+        <!--left division-->
+        <!-- -->
+        <div class="col-md-5 d-none d-md-block bg-left">  
+            <!--<nav class="navbar " style="font-family: 'Kavoon';font-size: 22px;">
+                <a class="navbar-brand text-warning p-2" routerLink="/">
+                    <img src="/assets/logo.svg" width="30" height="30" alt="logo">
+                    Shifterly
+                </a>
+            </nav>-->
+        </div>
+        <!--left division end-->
+        <!-- right division-->
+        <div class="col-md-7 bg-right">
+            <div class="container d-flex justify-content-center">
+                <div class="card text-white border-0 bg-transparent">
+                    <!--card body starts-->
+                    <div class="card-body">
+                        
+
+                        
+                            <div class="card-title text-center h5">
+                                <ul class="nav justify-content-center " id="nav_edit">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-muted" routerLink="/login"><i class="fa fa-key p-2"></i>Login</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " routerLink="/signup"><i class="fa fa-lock p-2"></i><u>Sign up</u></a>
+                                    </li>
+                                </ul>
+                            </div>
+                     
+                        <h5 class="mb-3">
+                            Welcome ,<i>{{ myForm.controls['firstName'].value | capitalize}} </i>
+                        </h5>
+                        <!--form starts -->
+                        <div class="card-text">
+                            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" 
+                                        [formControl]="myForm.controls['firstName']"
+                                         placeholder="First Name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" 
+                                        [formControl]="myForm.controls['lastName']"
+                                         placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <!--validation div for name-->
+                                <div class="alert alert-danger" 
+                                *ngIf="((!myForm.controls['firstName'].valid 
+                                || !myForm.controls['lastName'].valid) && (myForm.controls['firstName'].touched ||
+                                 myForm.controls['lastName'].touched) )">
+                                    first and last name are required
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" 
+                                    [formControl]="myForm.controls['email']"
+                                    placeholder="Enter email">
+                                </div>
+                                <!--validation div for email-->
+                                <div class="alert alert-danger" 
+                                *ngIf="(!myForm.controls['email'].valid ) 
+                                && (myForm.controls['email'].touched) ">
+                                        A valid email is required 
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control"
+                                    [formControl]="myForm.controls['password']"  
+                                    placeholder="Password" >
+                                    <small class="form-text text-muted " >
+                                        We'll never share your email with anyone else
+                                    </small>
+                                </div>
+                                <!--validation div for password-->
+                                <div class="alert alert-danger" 
+                                *ngIf="(!myForm.controls['password'].valid ) && (myForm.controls['password'].touched) ">
+                                       Password should be atlest 8 character long
+                                </div>
+
+                                <div class="form-group">
+                                        <input type="password" class="form-control"
+                                        [formControl]="myForm.controls['confirmPassword']"  
+                                        placeholder="Confirm Password" >
+                                </div>
+                                <!--validation div for confirm password-->
+                                <div class="alert alert-danger" 
+                                *ngIf="(!myForm.controls['confirmPassword'].valid ) && (myForm.controls['confirmPassword'].touched) ">
+                                       confirm password doesn't match
+                                </div>
+                                <button type="submit" class="btn btn-block btn-outline-secondary" [disabled]="!myForm.valid" >Sign Up</button>
+                            </form>
+                        </div>
+                        <!--error handler-->
+                        <div class="alert alert-success mt-2" *ngIf="message.length >0">
+                            {{ message }}
+                        </div>
+                        <div class="alert alert-danger mt-2" *ngIf="userError">
+                            {{ userError.message }}
+                        </div>
+                        <!--form ends -->
+                    </div>
+                    <!--card body ends-->
+                </div>
+            </div>
+        </div>
+        <!-- right division-->
+    <!--divisions end-->
+    </div>
+</div>
+<!---->
