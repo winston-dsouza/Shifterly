@@ -21,13 +21,13 @@ export class MenuComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
-  if (window.scrollY>200) {
+  if (window.scrollY>10) {
     document.getElementById('navi').style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; 
     
     document.getElementById('navi').classList.add("navbar-dark");
  
   } 
-  if(window.scrollY<200) {
+  if(window.scrollY<10) {
     document.getElementById('navi').style.backgroundColor = 'transparent'; 
     document.getElementById('navi').classList.remove("navbar-dark");
   }

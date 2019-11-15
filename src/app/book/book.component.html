@@ -4,7 +4,7 @@
             <div class="row ">
 
                 <div class="col-md-5">
-                    <div class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;">
+                    <div class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;" >
                         <form>
                             <div class="input-group  mb-3">
                                 <div class="input-group-prepend">
@@ -43,12 +43,30 @@
                                 </div>
                                 <input type="text" class="form-control border-warning " placeholder="PHONE NUMBER">
                             </div>
-                            <div class="col-xs-12 col-12 col-md-4 form-group">
-                                    <input type="text"
-                                           placeholder="Datepicker"
-                                           class="form-control"
-                                           bsDatepicker>
-                                  </div>
+                            <div class="form-group">
+                                <label class="text-warning">Enter Date:</label>
+                                <input type="date" name="bday" min="1000-01-01" max="3000-12-31" class="form-control border-warning">
+                            </div>
+                            <select class="form-control border-warning" >
+                                <option selected="selected" class="bg-warning" disabled ="disabled">SELECT GOOD TYPE</option>
+                                <option value="Electrical / Electronics">Electrical / Electronics</option>
+                                <option value="Food &amp; Beverages">Food &amp; Beverages</option>
+                                <option value="Tiles / Ceramics / Sanitaryware">Tiles / Ceramics / Sanitaryware</option>
+                                <option value="house">House shifting</option>
+                                <option value="Construction materials">Construction materials</option>
+                                <option value="Glassware">Glassware</option>
+                                <option value="Machines / Equipments / SpareParts">Machines / Equipments / SpareParts</option>
+                                <option value="Wood / Timber / Plywood">Wood / Timber / Plywood</option>
+                                <option value="Vehicles / Automotive Parts">Vehicles / Automotive Parts</option>
+                                <option value="Pipes / Metal Rods(more than 7ft)">Pipes / Metal Rods(more than 7ft)</option>
+                                <option value="Metal Sheets">Metal Sheets</option>
+                                <option value="Garments / Apparel / Textile">Garments / Apparel / Textile</option>
+                        
+                            </select>
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-block bg-warning mt-3">Book </button>
+                            </div>
+                           
                     </div>
                 </div>
 
@@ -58,6 +76,7 @@
             </div>
         </div>
     </div>
-    
+   
 </div>
+
 
