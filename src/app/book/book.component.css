@@ -1,0 +1,15 @@
+.background{
+    background: rgb(207,255,80);
+background: linear-gradient(120deg, rgba(207,255,80,1) 4%, rgba(255,255,255,1) 4%, rgba(250,250,250,1) 50%, rgba(255,233,56,1) 50%);
+}
+.bg-img{
+    background-image: url('/assets/location_search.svg');
+    background-repeat: no-repeat ;
+    background-size: contain;
+    background-position: center;
+    height: 500px;
+}
+.form-control:focus {
+    border-color: rgb(255, 243, 77);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(246, 250, 36, 0.6);
+  }

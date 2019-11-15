@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(form.value.email,form.value.password).then((data)=>{
       console.log(data);
       this.message="You have been Sucessfully Loggedin"
-   
+      this.router.navigate(['/book'])
+
 
     }).catch((error)=>{
       console.log(error)
