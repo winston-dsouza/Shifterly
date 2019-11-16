@@ -14,6 +14,8 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { BookComponent } from './book/book.component';
+import { AgmCoreModule } from "@agm/core";
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyDhVmNYg-qoi4pjt2Eh4sjK-lUPs1J5LYM",
@@ -41,7 +43,11 @@ firebase.initializeApp(firebaseConfig);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyDy29zNWUH7WZKauXjNwbFAFLopsuWhsJo",
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

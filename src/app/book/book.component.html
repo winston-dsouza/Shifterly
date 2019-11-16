@@ -1,23 +1,29 @@
 <div class="background">
     <div class="container">
         <div class="pt-5">
-            <div class="row ">
-
+            <div class="row">
+                <!--left div-->
                 <div class="col-md-5">
-                    <div class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;" >
+                    <div class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;">
                         <form>
                             <div class="input-group  mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border-warning"><i class="fa fa-map-marker-alt "></i></span>
+                                    <span class="input-group-text bg-warning border-warning"><i
+                                            class="fa fa-map-marker-alt "></i></span>
                                 </div>
-                                <input type="text" class="form-control border-warning " placeholder="PICK-UP LOCATION">
+                                <input #search autocorrect="off" autocomplete="off" id="place" autocapitalize="off"
+                                    spellcheck="off" type="text" [formControl]="searchControl"
+                                    class="form-control border-warning " placeholder="PICK-UP LOCATION">
                             </div>
-                        
+
                             <div class="input-group  mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border-warning"><i class="fa fa-map-marker-alt "></i></span>
+                                    <span class="input-group-text bg-warning border-warning"><i
+                                            class="fa fa-map-marker-alt "></i></span>
                                 </div>
-                                <input type="text" class="form-control border-warning " placeholder="DROP LOCATION">
+                                <input #destsearch autocorrect="off" autocomplete="off" id="place" autocapitalize="off"
+                                    spellcheck="off" type="text" [formControl]="searchControlDest"
+                                    class="form-control border-warning " placeholder="DROP LOCATION">
                             </div>
                             <select class="custom-select form-control border-warning" style="background-color:White;">
                                 <option class="bg-warning" disabled="disabled">Available Vehicle Type</option>
@@ -31,52 +37,63 @@
                                 </option>
                             </select>
 
-                        
-                        
-                        
+
+
+
                         </form>
                     </div>
-                    <div  class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;">
-                            <div class="input-group  mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text bg-warning border-warning "><b>+91</b></span>
-                                </div>
-                                <input type="text" class="form-control border-warning " placeholder="PHONE NUMBER">
+                    <div class="bg-white shadow   px-3 py-5 mt-5" style="border-radius: 1.5rem;">
+                        <div class="input-group  mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-warning border-warning "><b>+91</b></span>
                             </div>
-                            <div class="form-group">
-                                <label class="text-warning">Enter Date:</label>
-                                <input type="date" name="bday" min="1000-01-01" max="3000-12-31" class="form-control border-warning">
-                            </div>
-                            <select class="form-control border-warning" >
-                                <option selected="selected" class="bg-warning" disabled ="disabled">SELECT GOOD TYPE</option>
-                                <option value="Electrical / Electronics">Electrical / Electronics</option>
-                                <option value="Food &amp; Beverages">Food &amp; Beverages</option>
-                                <option value="Tiles / Ceramics / Sanitaryware">Tiles / Ceramics / Sanitaryware</option>
-                                <option value="house">House shifting</option>
-                                <option value="Construction materials">Construction materials</option>
-                                <option value="Glassware">Glassware</option>
-                                <option value="Machines / Equipments / SpareParts">Machines / Equipments / SpareParts</option>
-                                <option value="Wood / Timber / Plywood">Wood / Timber / Plywood</option>
-                                <option value="Vehicles / Automotive Parts">Vehicles / Automotive Parts</option>
-                                <option value="Pipes / Metal Rods(more than 7ft)">Pipes / Metal Rods(more than 7ft)</option>
-                                <option value="Metal Sheets">Metal Sheets</option>
-                                <option value="Garments / Apparel / Textile">Garments / Apparel / Textile</option>
-                        
-                            </select>
-                            <div class="form-group ">
-                                <button type="submit" class="btn btn-block bg-warning mt-3">Book </button>
-                            </div>
-                           
+                            <input type="text" class="form-control border-warning " placeholder="PHONE NUMBER">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-warning">Enter Date:</label>
+                            <input type="date" name="bday" min="1000-01-01" max="3000-12-31"
+                                class="form-control border-warning">
+                        </div>
+
+                        <select class="form-control border-warning">
+                            <option selected="selected" class="bg-warning" disabled="disabled">SELECT GOOD TYPE</option>
+                            <option value="Electrical / Electronics">Electrical / Electronics</option>
+                            <option value="Food &amp; Beverages">Food &amp; Beverages</option>
+                            <option value="Tiles / Ceramics / Sanitaryware">Tiles / Ceramics / Sanitaryware</option>
+                            <option value="house">House shifting</option>
+                            <option value="Construction materials">Construction materials</option>
+                            <option value="Glassware">Glassware</option>
+                            <option value="Machines / Equipments / SpareParts">Machines / Equipments / SpareParts
+                            </option>
+                            <option value="Wood / Timber / Plywood">Wood / Timber / Plywood</option>
+                            <option value="Vehicles / Automotive Parts">Vehicles / Automotive Parts</option>
+                            <option value="Pipes / Metal Rods(more than 7ft)">Pipes / Metal Rods(more than 7ft)</option>
+                            <option value="Metal Sheets">Metal Sheets</option>
+                            <option value="Garments / Apparel / Textile">Garments / Apparel / Textile</option>
+
+                        </select>
+
+
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-block bg-warning mt-3">Book </button>
+                        </div>
+                        <!--<input #destsearch autocorrect="off" autocomplete="off" id="place" autocapitalize="off" spellcheck="off" type="text" [formControl]="searchControlDest" class="form-control">-->
+
                     </div>
                 </div>
+                <!--right div-->
+                <div class="col-md-6  bg-img ml-5 mt-5 d-none d-sm-block d-md-bock">
+                    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                        <agm-marker *ngFor="let latlong of latlongs" [latitude]="latlong.latitude"
+                            [longitude]="latlong.longitude"></agm-marker>
+                        <agm-marker *ngFor="let latlong of latlongsDest" [latitude]="latlong.latitude"
+                            [longitude]="latlong.longitude"></agm-marker>
 
-                <div class="col-md-6  bg-img ml-5" >
-                    
+                    </agm-map>
                 </div>
+                <p *ngFor="let latlong of latlongsDest"> {{ latlong.latitude}} </p>
             </div>
         </div>
     </div>
-   
+
 </div>
-
-
