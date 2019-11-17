@@ -2,7 +2,7 @@
     background: rgb(207,255,80);
     background: linear-gradient(120deg, rgba(207,255,80,1) 7%, rgba(255,255,255,1) 7%, rgba(250,250,250,1) 50%, rgba(255,233,56,1) 50%);
     background-size: cover;
-    padding-bottom:100px ;
+  
 }
 .bg-img{
     background-image: url('/assets/location_search.svg');

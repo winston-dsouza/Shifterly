@@ -27,6 +27,24 @@ export class BookComponent implements OnInit ,AfterViewInit{
   latlongDest:any={}
   public searchControl:FormControl;
   public searchControlDest:FormControl;
+  srcPlaces:string;
+  destPlaces:string;
+  finaldistance;
+  icon={
+    url: '/assets/delivery-truck.svg',
+    scaledSize: {
+        width: 40,
+        height: 60
+    }
+}
+ icondel={
+  url: '/assets/placeholder.svg',
+  scaledSize: {
+      width: 40,
+      height: 60
+  }
+}
+  
 
   constructor(private mapsApiLoader:MapsAPILoader,private ngZone:NgZone) {
     
@@ -54,6 +72,8 @@ export class BookComponent implements OnInit ,AfterViewInit{
       autocomplete.addListener('place_changed',()=>{
         this.ngZone.run(()=>{
           const place:google.maps.places.PlaceResult=autocomplete.getPlace();
+          this.srcPlaces= autocomplete.getPlace().formatted_address
+          console.log(this.srcPlaces)
           //alert(autocomplete.getPlace().name)
           if(place.geometry === undefined || place.geometry ===null){
             return ;
@@ -65,7 +85,8 @@ export class BookComponent implements OnInit ,AfterViewInit{
           };
           this.latlongs.push(latlong);
           console.log(this.latlongs[0])
-          this.searchControl.reset();
+          //this.searchControl.reset();
+      
         });
         
       });
@@ -75,8 +96,8 @@ export class BookComponent implements OnInit ,AfterViewInit{
       autocompleteDest.addListener('place_changed',()=>{
         this.ngZone.run(()=>{
           const destplace:google.maps.places.PlaceResult=autocompleteDest.getPlace();
-          //alert(autocompleteDest.getPlace().description)
-          console.log(autocompleteDest.getPlace().name)
+           this.destPlaces= autocompleteDest.getPlace().formatted_address
+          console.log(this.destPlaces)
         
           if(destplace.geometry === undefined || destplace.geometry ===null){
             return ;
@@ -89,10 +110,14 @@ export class BookComponent implements OnInit ,AfterViewInit{
 
           this.latlongsDest.push(latlongDest);
           console.log(this.latlongsDest[0])
-          this.searchControlDest.reset();
+          this.calculateDistance()
+          console.log(this.finaldistance)
+          //this.searchControlDest.reset();
         });
         
       });
+
+      
 
 
 
@@ -113,6 +138,44 @@ export class BookComponent implements OnInit ,AfterViewInit{
 
   }
   */
+ calculateDistance(){
+   let returnDist:number;
+   let origin:string=this.srcPlaces;
+   console.log(origin)
+   let destPlace:string=this.destPlaces;
+   console.log("1")
+   let service= new google.maps.DistanceMatrixService()
+   console.log("2")
+   service.getDistanceMatrix({
+    origins: [origin],
+    destinations: [destPlace],
+    travelMode: 'DRIVING',
+    avoidHighways: false,
+    avoidTolls: false,
+   },(response,status)=>{
+     if(status == 'OK'){
+      console.log("3")
+       let origins =response.originAddresses[0];
+       let destinations =response.destinationAddresses[0];
+       if(response.rows[0].elements[0].status === "ZERO_RESULTS"){
+         console.log("better get flight")
+       }else{
+        let distance = response.rows[0].elements[0].distance;
+        let duration = response.rows[0].elements[0].duration;
+        console.log(distance.value/1000);
+        this.finaldistance=distance.value/1000;
+        let duration_value=duration.value;
+        return distance.value/1000;
+       }
+     }else{
+      console.log("4")
+     }
+
+   })
+   return 
+ }
+  
+
   ngAfterViewInit(){
     
     

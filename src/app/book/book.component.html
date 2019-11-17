@@ -9,7 +9,8 @@
                             <div class="input-group  mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-warning border-warning"><i
-                                            class="fa fa-map-marker-alt "></i></span>
+                                            class="fa fa-map-marker-alt "></i>
+                                    </span>
                                 </div>
                                 <input #search autocorrect="off" autocomplete="off" id="place" autocapitalize="off"
                                     spellcheck="off" type="text" [formControl]="searchControl"
@@ -36,6 +37,12 @@
                                 <option value="TATA 407" data-description="9Lx5.5Wx5H(FT)Load 2.5 Ton">TATA 407
                                 </option>
                             </select>
+                            <!--<div class="mx-auto text-danger bg warning p-5" *ngIf="finaldistance">
+                                {{ finaldistance * 9 | currency:'INR'}}
+                            </div>-->
+                            <div class="text-center text-black font-weight-bold bg-warning p-2 mt-4 mx-4" *ngIf="finaldistance" >
+                                ESTIMATED FAIR :{{ finaldistance * 9 | currency:'INR'}}
+                              </div>
 
 
 
@@ -73,21 +80,22 @@
 
                         </select>
 
-
+                        <input type="number" class="form-control" placeholder="Sum" [ngModel]="finaldistance *9 " hidden>
+                        
                         <div class="form-group ">
                             <button type="submit" class="btn btn-block bg-warning mt-3">Book </button>
                         </div>
-                        <!--<input #destsearch autocorrect="off" autocomplete="off" id="place" autocapitalize="off" spellcheck="off" type="text" [formControl]="searchControlDest" class="form-control">-->
+                        
 
                     </div>
                 </div>
                 <!--right div-->
-                <div class="col-md-6  bg-img ml-5 mt-5 d-none d-sm-block d-md-bock">
-                    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                <div class="col-md-6  bg-img ml-5 mt-5 d-none d-sm-block d-md-bock" >
+                    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" *ngIf="srcPlaces">
                         <agm-marker *ngFor="let latlong of latlongs" [latitude]="latlong.latitude"
-                            [longitude]="latlong.longitude"></agm-marker>
+                            [longitude]="latlong.longitude" [iconUrl]="icon"></agm-marker>
                         <agm-marker *ngFor="let latlong of latlongsDest" [latitude]="latlong.latitude"
-                            [longitude]="latlong.longitude"></agm-marker>
+                            [longitude]="latlong.longitude" [iconUrl]="icondel"></agm-marker>
 
                     </agm-map>
                 </div>
