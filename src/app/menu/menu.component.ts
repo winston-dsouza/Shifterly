@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 import { Router } from '@angular/router';
@@ -13,7 +15,25 @@ import * as $ from 'jquery';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  loggedIn:boolean=false;
+  user:any
+
+  constructor() { 
+    this.user=firebase.auth().currentUser;
+    if(this.user){
+      this.loggedIn=true;
+    }else{
+      this.loggedIn=false;
+    }
+
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+        this.loggedIn=true;
+      }else{
+        this.loggedIn=false;
+      }
+    })
+  }
 
   ngOnInit() {
    
@@ -31,6 +51,10 @@ export class MenuComponent implements OnInit {
     document.getElementById('navi').style.backgroundColor = 'transparent'; 
     document.getElementById('navi').classList.remove("navbar-dark");
   }
+  }
+
+  logout(){
+    firebase.auth().signOut();
   }
 
   

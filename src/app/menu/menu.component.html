@@ -13,13 +13,22 @@
         <li class="nav-item active" routerLinkActive="active">
           <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" routerLinkActive="active" *ngIf="loggedIn">
           <a class="nav-link"  routerLink="/book">book</a>
         </li>
         
       </ul>
-      <p class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-warning my-2 my-sm-0" routerLinkActive="active" routerLink="/login">login</button>
-      </p>
+      
+      
+      <ul class="navbar-nav ml-auto" >
+          <li class="nav-item" routerLinkActive="active" *ngIf="!loggedIn">
+              <button class="btn btn-outline-warning my-2 my-sm-0" routerLinkActive="active" routerLink="/login">login</button>
+          </li>
+          <li class="nav-item right" *ngIf="loggedIn">
+              <a class="nav-link"  (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </li>
+         
+  
+      </ul>
     </div>
   </nav>

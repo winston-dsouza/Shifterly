@@ -1,7 +1,11 @@
 /// <reference types="@types/googlemaps" />
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, NgZone } from '@angular/core';
 import { MapsAPILoader } from '@agm/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder ,FormGroup,FormControl,Validators } from '@angular/forms';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 
 declare let google: any;
 
@@ -14,6 +18,9 @@ declare let google: any;
 })
 
 export class BookComponent implements OnInit ,AfterViewInit{
+
+  user:any={};
+  message:string="";
 
   @ViewChild('search',{static:false}) searchElementRef: ElementRef;
   @ViewChild('destsearch',{static:false}) destSearchElement:ElementRef;
@@ -30,23 +37,52 @@ export class BookComponent implements OnInit ,AfterViewInit{
   srcPlaces:string;
   destPlaces:string;
   finaldistance;
-  icon={
-    url: '/assets/delivery-truck.svg',
-    scaledSize: {
-        width: 40,
-        height: 60
-    }
-}
- icondel={
-  url: '/assets/placeholder.svg',
-  scaledSize: {
-      width: 40,
-      height: 60
+  icon={ url: '/assets/delivery-truck.svg',scaledSize: { width: 40, height: 60}}
+  icondel={ url: '/assets/placeholder.svg',scaledSize: { width: 40, height: 60}}
+  tempoList:any[]=[{
+    name:"PIAGGIO APE (494kgs)",
+    cost:200
+  },{
+    name:"TATA ACE (850kgs)",
+    cost:400
+  },{
+    name:"BOLERO PICK-UP (1.5 Ton)",
+    cost:500
+  },{
+    name:"TATA 407(2.5 Ton)",
+    cost:1000
+  }]
+  selectedTempo="Available Vehicle Type"
+  selectOption(event){
+    console.log(event)
+
   }
-}
+  selectedItem
+  selctedefault="SELECT GOOD TYPE"
+  selectItem(event){
+    
+    console.log(event)
+  }
   
 
-  constructor(private mapsApiLoader:MapsAPILoader,private ngZone:NgZone) {
+  myForm:FormGroup;
+
+  //today =new Date();
+   //min=new Date(this.today.getFullYear(),this.today.getMonth(),this.today.getDate()+1)
+   //max =new Date(this.today.getFullYear(),this.today.getMonth()+3,this.today.getDate())
+   
+  constructor(private mapsApiLoader:MapsAPILoader,private ngZone:NgZone,public fb:FormBuilder) {
+    
+    this.myForm =this.fb.group({
+      src:['',[Validators.required]],
+      dest:['',[Validators.required]],
+      vehicleType:['',[Validators.required]],
+      phone:['',[Validators.required,Validators.maxLength(10),Validators.pattern('[6-9]\\d{9}')]],
+      goodsType:['',[Validators.required]],
+      dateOfDelivery:['',[Validators.required]]
+
+    })
+    this.user =firebase.auth().currentUser;
     
    }
 
@@ -54,8 +90,9 @@ export class BookComponent implements OnInit ,AfterViewInit{
     this.zoom=5;
     this.latitude=12.9141;
     this.longitude=74.8560;
-    this.searchControl =new FormControl();
-    this.searchControlDest=new FormControl();
+    //this.searchControl =new FormControl();
+    //this.searchControlDest=new FormControl();
+   
    
     this.mapsApiLoader.load().then(()=>{
       //auto1
@@ -111,7 +148,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
           this.latlongsDest.push(latlongDest);
           console.log(this.latlongsDest[0])
           this.calculateDistance()
-          console.log(this.finaldistance)
+          //console.log(this.finaldistance)
           //this.searchControlDest.reset();
         });
         
@@ -141,11 +178,11 @@ export class BookComponent implements OnInit ,AfterViewInit{
  calculateDistance(){
    let returnDist:number;
    let origin:string=this.srcPlaces;
-   console.log(origin)
+   //console.log(origin)
    let destPlace:string=this.destPlaces;
-   console.log("1")
+   //console.log("1")
    let service= new google.maps.DistanceMatrixService()
-   console.log("2")
+   //console.log("2")
    service.getDistanceMatrix({
     origins: [origin],
     destinations: [destPlace],
@@ -162,7 +199,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
        }else{
         let distance = response.rows[0].elements[0].distance;
         let duration = response.rows[0].elements[0].duration;
-        console.log(distance.value/1000);
+        //console.log(distance.value/1000);
         this.finaldistance=distance.value/1000;
         let duration_value=duration.value;
         return distance.value/1000;
@@ -172,8 +209,33 @@ export class BookComponent implements OnInit ,AfterViewInit{
      }
 
    })
-   return 
+   return ;
  }
+ onBook(book){
+   let vehicleType =book.value.vehicleType;
+   let phone=book.value.phone;
+   let goodsType=book.value.goodsType;
+   let dateOfDelivery=book.value.dateOfDelivery;
+   firebase.firestore().collection('bookings').add({
+     owner:firebase.auth().currentUser.uid,
+     src:this.srcPlaces,
+     dest:this.destPlaces,
+     vehicle:vehicleType,
+     cost:this.finaldistance*9,
+     phone:phone,
+     date:dateOfDelivery,
+     goods:goodsType,
+     status:'booked',
+     booktime:firebase.firestore.FieldValue.serverTimestamp()
+
+   }).then((data)=>{
+     console.log(data);
+     this.message="You Have Successfully Book!!";
+   }).catch((err)=>{
+     console.log(err);
+   })
+   
+}
   
 
   ngAfterViewInit(){
