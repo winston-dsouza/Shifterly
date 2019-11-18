@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { BookComponent } from './book/book.component';
 import { AgmCoreModule } from "@agm/core";
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 
 
 var firebaseConfig = {
@@ -37,7 +38,8 @@ firebase.initializeApp(firebaseConfig);
     CapitalizePipe,
     HomeComponent,
     MenuComponent,
-    BookComponent
+    BookComponent,
+    MyBookingsComponent
   ],
   imports: [
     BrowserModule,

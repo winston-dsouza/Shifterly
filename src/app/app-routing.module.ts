@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BookComponent } from './book/book.component';
 import { AuthGuard } from './auth.guard';
+import { MyBookingsComponent } from './my-bookings/my-bookings.component';
 
 
 const routes: Routes = [{
@@ -17,6 +18,8 @@ const routes: Routes = [{
   path: 'signup',component:SignupComponent
 },{
   path: 'book',component:BookComponent,canActivate:[AuthGuard]
+},{
+  path:'mybookings',component:MyBookingsComponent,canActivate:[AuthGuard]
 },{
   path: '**',redirectTo:'home'
 }];

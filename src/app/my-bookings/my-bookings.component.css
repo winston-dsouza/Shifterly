@@ -1,0 +1,6 @@
+.background{
+    background: rgb(255,255,255);
+    background: linear-gradient(48deg, rgba(255,255,255,1) 27%, rgba(255,255,255,1) 55%, rgba(255,233,56,1) 55%, rgba(255,233,56,1) 85%, rgba(207,255,80,1)  85%);
+    background-size: cover;
+
+}

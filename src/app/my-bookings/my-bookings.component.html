@@ -1,0 +1,27 @@
+<div class="background pt-5 bg-img">
+    <div class="container pt-5" style="height: 1000px;">
+        <div class="d-flex flex-column bd-highlight mb-3 px-3">
+
+            <div class="p-2 bd-highlight bg-white shadow-lg rounded my-2" *ngFor="let books of bookingsArr">
+                <div class="row mx-2 p-2">
+                    <div class="mx-auto pb-1">
+                        <img src="/assets/truck.svg" alt="frg" width="30px" height="30px" class=" d-inline">
+                        <div class=" font-weight-bold ml-3 d-inline">{{books.date |date: 'MMM dd, yyyy'}}</div>
+                        <div class=" ml-5 font-weight-normal"><b>Vehicle Type :</b> {{ books.vehicle }}</div>
+                        <div class=" ml-5 font-weight-normal"><b>Goods Type</b> : {{ books.goods }}</div>
+                        <div class="ml-5 font-italic">booked date:{{ books.booktime.toDate() | date: 'MMM dd, yyyy h:mm a'}}</div>
+                        <div class="ml-5 font-italic">booking status: {{ books.status}}</div>
+                    </div>
+                    <div class="col-md-5  mx-auto">
+                        <div class="h5">{{ books.cost | currency:"INR"}}</div>
+                        <div> <i class="fas fa-circle fa-xs text-success" ></i>{{books.src}}</div>
+                        <div>&nbsp;<i class="fas fa-ellipsis-v  fa-xs text-secondary"></i></div> 
+                        <div> <i class="fas fa-circle fa-xs text-danger" ></i> {{books.dest}}</div>
+                    </div>
+                </div>
+            </div>
+
+            
+          </div>
+    </div>
+</div>
