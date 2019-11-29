@@ -37,8 +37,10 @@ export class BookComponent implements OnInit ,AfterViewInit{
   srcPlaces:string;
   destPlaces:string;
   finaldistance;
+
   icon={ url: '/assets/delivery-truck.svg',scaledSize: { width: 40, height: 60}}
   icondel={ url: '/assets/placeholder.svg',scaledSize: { width: 40, height: 60}}
+
   tempoList:any[]=[{
     name:"PIAGGIO APE (494kgs)",
     cost:200
@@ -52,16 +54,17 @@ export class BookComponent implements OnInit ,AfterViewInit{
     name:"TATA 407(2.5 Ton)",
     cost:1000
   }]
+  
   selectedTempo="Available Vehicle Type"
   selectOption(event){
-    console.log(event)
+    //console.log(event)
 
   }
   selectedItem
   selctedefault="SELECT GOOD TYPE"
   selectItem(event){
     
-    console.log(event)
+    //console.log(event)
   }
   
 
@@ -77,7 +80,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
       src:['',[Validators.required]],
       dest:['',[Validators.required]],
       vehicleType:['',[Validators.required]],
-      phone:['',[Validators.required,Validators.maxLength(10),Validators.pattern('[6-9]\\d{9}')]],
+      phone:['',[Validators.required,Validators.pattern('[6-9]\\d{9}')]],
       goodsType:['',[Validators.required]],
       dateOfDelivery:['',[Validators.required]]
 
@@ -110,7 +113,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
         this.ngZone.run(()=>{
           const place:google.maps.places.PlaceResult=autocomplete.getPlace();
           this.srcPlaces= autocomplete.getPlace().formatted_address
-          console.log(this.srcPlaces)
+          //console.log(this.srcPlaces)
           //alert(autocomplete.getPlace().name)
           if(place.geometry === undefined || place.geometry ===null){
             return ;
@@ -121,7 +124,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
             longitude:place.geometry.location.lng()
           };
           this.latlongs.push(latlong);
-          console.log(this.latlongs[0])
+          //console.log(this.latlongs[0])
           //this.searchControl.reset();
       
         });
@@ -134,7 +137,7 @@ export class BookComponent implements OnInit ,AfterViewInit{
         this.ngZone.run(()=>{
           const destplace:google.maps.places.PlaceResult=autocompleteDest.getPlace();
            this.destPlaces= autocompleteDest.getPlace().formatted_address
-          console.log(this.destPlaces)
+          //console.log(this.destPlaces)
         
           if(destplace.geometry === undefined || destplace.geometry ===null){
             return ;
@@ -146,37 +149,19 @@ export class BookComponent implements OnInit ,AfterViewInit{
           };
 
           this.latlongsDest.push(latlongDest);
-          console.log(this.latlongsDest[0])
+          //console.log(this.latlongsDest[0])
           this.calculateDistance()
-          //console.log(this.finaldistance)
+          //console.log(finaldistance)
           //this.searchControlDest.reset();
         });
         
       });
-
-      
-
-
-
     });
     
   }
-  /** 
-  private setCurrentPosition(){
-    if('geolocation' in navigator){
-      navigator.geolocation.getCurrentPosition((position)=>{
-        this.latitude =position.coords.latitude;
-        this.longitude=position.coords.longitude;
-        this.zoom=80;
-      })
-
-    
-    }
-
-  }
-  */
+ 
  calculateDistance(){
-   let returnDist:number;
+   //let returnDist:number;
    let origin:string=this.srcPlaces;
    //console.log(origin)
    let destPlace:string=this.destPlaces;
@@ -191,21 +176,21 @@ export class BookComponent implements OnInit ,AfterViewInit{
     avoidTolls: false,
    },(response,status)=>{
      if(status == 'OK'){
-      console.log("3")
-       let origins =response.originAddresses[0];
-       let destinations =response.destinationAddresses[0];
+      //console.log("3")
+       //let origins =response.originAddresses[0];
+       //let destinations =response.destinationAddresses[0];
        if(response.rows[0].elements[0].status === "ZERO_RESULTS"){
          console.log("better get flight")
        }else{
         let distance = response.rows[0].elements[0].distance;
-        let duration = response.rows[0].elements[0].duration;
+        //let duration = response.rows[0].elements[0].duration;
         //console.log(distance.value/1000);
         this.finaldistance=distance.value/1000;
-        let duration_value=duration.value;
+        //let duration_value=duration.value;
         return distance.value/1000;
        }
      }else{
-      console.log("4")
+      console.log("error")
      }
 
    })
@@ -225,11 +210,11 @@ export class BookComponent implements OnInit ,AfterViewInit{
      phone:phone,
      date:dateOfDelivery,
      goods:goodsType,
-     status:'booked',
+     status:'Booked',
      booktime:firebase.firestore.FieldValue.serverTimestamp()
 
    }).then((data)=>{
-     console.log(data);
+     //console.log(data);
      this.message="You Have Successfully Book!!";
    }).catch((err)=>{
      console.log(err);

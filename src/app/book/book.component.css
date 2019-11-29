@@ -18,3 +18,12 @@
   agm-map {
     height: 500px;
   }
+  
+  .footer{
+    background-color: #fcf04c;
+    min-height:150px;
+    padding-top:40px;
+    width: 100%;
+    bottom: 0;
+    
+  }

@@ -1,5 +1,8 @@
 <div class="background pt-5 bg-img">
-    <div class="container pt-5" style="height: 1000px;">
+    <div class="container pt-5" style="min-height: 1400px;">
+        <div class="container" style="height: 500px;" *ngIf="bookingsArr.length == 0">
+            <img src="/assets/empty_cart.svg" title="no orders yet" style="height: 500px;" class="img-fluid">
+        </div>
         <div class="d-flex flex-column bd-highlight mb-3 px-3">
 
             <div class="p-2 bd-highlight bg-white shadow-lg rounded my-2" *ngFor="let books of bookingsArr">

@@ -3,12 +3,7 @@
         <!--divisions starts-->
         <!--left division-->
         <div class="col-md-5 d-none d-md-block bg-left">
-            <!--<nav class="navbar " style="font-family: 'Kavoon';font-size: 22px;">
-                <a class="navbar-brand text-warning p-2"  routerLink="/">
-                    <img src="/assets/logo.svg" width="30" height="30" alt="logo">
-                    Shifterly
-                </a>
-            </nav>-->
+            
         </div>
         <!--left division end-->
         <!-- right division-->
@@ -34,7 +29,7 @@
                         <!--form starts -->
                         <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="mt-3">
                             <div class="form-group ">
-                                <input type="email" class="form-control" [formControl]="myForm.controls['email']" placeholder="Enter email">
+                                <input type="email" class="form-control border-warning" [formControl]="myForm.controls['email']" placeholder="Enter email">
                             </div>
                             <!--validation div for email-->
                             <div class="alert alert-danger" *ngIf="(!myForm.controls['email'].valid ) 
@@ -43,7 +38,7 @@
                             </div>
                     
                             <div class="form-group ">
-                                <input type="password" class="form-control" [formControl]="myForm.controls['password']"
+                                <input type="password" class="form-control border-warning" [formControl]="myForm.controls['password']"
                                     placeholder="Password">
                     
                             </div>
@@ -52,9 +47,9 @@
                                                      && (myForm.controls['password'].touched) ">
                                 please enter password
                             </div>
-                            <p class=" text-primary"><a>forgot password?</a></p>
+                           
                     
-                            <button type="submit" class="btn btn-block  btn-outline-secondary" [disabled]="!myForm.valid">Login</button>
+                            <button type="submit" class="btn btn-block  btn-outline-secondary  border-warning" [disabled]="!myForm.valid">Login</button>
                         </form>
                         <!--form ends -->
                     </div>

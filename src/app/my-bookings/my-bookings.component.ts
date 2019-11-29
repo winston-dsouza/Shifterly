@@ -11,7 +11,6 @@ import 'firebase/firestore';
 })
 export class MyBookingsComponent implements OnInit {
 
-  cost=42
   user:any;
   bookingsArr :any[]=[];
 
@@ -21,7 +20,7 @@ export class MyBookingsComponent implements OnInit {
 
   ngOnInit() {
     this.getBookings();
-    console.log(this.bookingsArr)
+    
   }
 
   getBookings(){

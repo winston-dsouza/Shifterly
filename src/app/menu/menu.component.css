@@ -1,5 +1,7 @@
 .btn-outline-warning{
-    margin-left: 100px;
     border-radius: 50px;
     width: 10rem;
+}
+.shadow-bg{
+    text-shadow: 1px 1px 3px #000000;
 }

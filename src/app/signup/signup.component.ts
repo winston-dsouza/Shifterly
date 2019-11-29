@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   message:string="";
   userError:any;
 
-  constructor(public fb:FormBuilder,public authService: AuthService) {
+  constructor(public fb:FormBuilder,public authService: AuthService,public router:Router) {
       this.myForm = this.fb.group({
         firstName:['',[Validators.required]],
         lastName:['',[Validators.required]],
@@ -55,7 +55,8 @@ export class SignupComponent implements OnInit {
 
       this.authService.signup(email,password,firstName,lastName)
       .then(()=>{
-        this.message ="You have been signed up sucessfully. Please login."
+        //this.message ="You have been signed up sucessfully. Please login."
+        this.router.navigate(['/book'])
           
       }).catch((error)=>{
         console.log(error);

@@ -1,0 +1,55 @@
+.setback{
+    background-color: #000000;
+    background-image: url("/assets/back.svg");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 1700px;
+    height:100%;
+    padding: 4%;
+}
+
+.container{
+    padding: 2%;
+    margin-top:50px;
+}
+
+.sideHead{
+    color: orangered;
+}
+
+.cards{
+    margin-top:4%;
+    margin-bottom:4%;
+    padding: 15px;
+    transition: 0.3s;
+}
+.cards h4{
+    color: orangered;
+}
+
+.cards:hover{
+    color: white;
+    background-color: orangered;
+}
+
+.cards:hover h4{
+    color: white;
+}
+
+.val{
+    background-color: orangered;
+    color: white;
+    padding: 15px;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.val:hover{
+    font-size: x-large;
+}
+
+.val1{
+    padding: 15px;
+}

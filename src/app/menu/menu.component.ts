@@ -55,6 +55,7 @@ export class MenuComponent implements OnInit {
 
   logout(){
     firebase.auth().signOut();
+    
   }
 
   

@@ -1,34 +1,34 @@
-<nav class=" navbar navbar-expand-lg navbar-light fixed-top shadow-sm" 
+<nav class=" navbar navbar-expand-lg navbar-light fixed-top shadow-sm font-weight-normal" 
 (scroll)="onWindowScroll($event); " id="navi" > <!--router.url != '/login' -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand  p-2" routerLink="/" style="font-family: 'Kavoon';font-size: 22px;color:#ffed29">
-        <img src="/assets/logo.svg" width="30" height="30" alt="logo">
-        Shifterly
+        <img src="/assets/logo.svg" width="30" height="30" alt="logo" >
+        <span class="shadow-bg"> Shifterly</span>
     </a>
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active" routerLinkActive="active">
-          <a class="nav-link"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link"  routerLink="/home">HOME <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" routerLinkActive="active" *ngIf="loggedIn">
-          <a class="nav-link"  routerLink="/book">Book <i class="fas fa-shipping-fast"></i></a>
+          <a class="nav-link"  routerLink="/book">BOOK <i class="fas fa-shipping-fast"></i></a>
         </li>
-        <li class="nav-item" routerLinkActive="active" >
-          <a class="nav-link"  routerLink="/mybookings">My Bookings </a>
+        <li class="nav-item" routerLinkActive="active" *ngIf="loggedIn">
+          <a class="nav-link"  routerLink="/mybookings">MY BOOKINGS </a>
         </li>
         
       </ul>
       
       
       <ul class="navbar-nav ml-auto" >
-          <li class="nav-item" routerLinkActive="active" *ngIf="!loggedIn">
-              <button class="btn btn-outline-warning my-2 my-sm-0" routerLinkActive="active" routerLink="/login">login</button>
-          </li>
+          <li class="nav-item right" routerLinkActive="active" *ngIf="!loggedIn">
+              <button  type="button" class="btn btn-outline-warning " routerLinkActive="active" routerLink="/login"><i class="fas fa-sign-in-alt"></i> login</button>
+          </li> 
           <li class="nav-item right" *ngIf="loggedIn">
-              <a class="nav-link"  (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+              <button type="button" class="btn btn-outline-secondary" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
           </li>
          
   

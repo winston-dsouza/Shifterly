@@ -5,8 +5,9 @@
             <div class="mx-auto p-5 text-white" id="banner_content" style="border-radius: 0.5rem;">
                 <div class="h2">India’s Largest Marketplace for Intracity Logistics
                 </div>
-                <p>GET &#8377;500 for new users</p>
-                <a class="btn btn-warning btn-lg text-white" routerLink="/signup">Join Us</a>
+                <p *ngIf="!loggedIn">GET &#8377;500 for new users</p>
+                <a class="btn btn-warning btn-lg text-white" routerLink="/signup" *ngIf="!loggedIn">Join Us</a>
+                <a class="btn btn-lg btn-outline-light rounded-pill mt-3" routerLink="/book" *ngIf="loggedIn">Book Now</a>
 
             </div>
         </div>
@@ -35,6 +36,10 @@
                 </div>
                 
             </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-lg btn-outline-secondary rounded-pill mt-3 mx-auto" routerLink="/about">Read More</button>
+
     </div>
 </div>
 <footer class="footer">

@@ -6,6 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { BookComponent } from './book/book.component';
 import { AuthGuard } from './auth.guard';
 import { MyBookingsComponent } from './my-bookings/my-bookings.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 const routes: Routes = [{
@@ -20,6 +21,8 @@ const routes: Routes = [{
   path: 'book',component:BookComponent,canActivate:[AuthGuard]
 },{
   path:'mybookings',component:MyBookingsComponent,canActivate:[AuthGuard]
+},{
+  path:'about',component:AboutusComponent
 },{
   path: '**',redirectTo:'home'
 }];

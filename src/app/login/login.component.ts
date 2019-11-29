@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
   onSubmit(form){
     
     this.authService.login(form.value.email,form.value.password).then((data)=>{
-      console.log(data);
-      this.message="You have been Sucessfully Loggedin"
+      //console.log(data);
+      //this.message="You have been Sucessfully Loggedin"
       this.router.navigate(['/book'])
 
 
