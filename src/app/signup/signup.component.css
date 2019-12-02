@@ -32,3 +32,22 @@
   #nav_edit li a:hover{
     color: #bdbdbd;
   }
+
+  @media only screen and (max-width: 600px) {
+    .bg-right{
+    background: linear-gradient(326deg, rgba(56,211,159,1) 8%, rgba(56,211,159,1) 13%, rgba(255,255,255,1) 13%, rgba(255,255,255,1) 77%, rgba(255,233,56,1) 77%, rgba(255,233,56,1) 93%, rgba(100,252,112,1) 93%);
+    background-repeat: no-repeat ;
+    background-size: contain;
+    background-position: center;
+   
+    }
+    u{
+        color:rgb(0, 0, 0);
+    }
+    i.fa-lock::before{
+        color: black;
+    }
+    .text-white{
+        color:rgb(20, 20, 20)!important
+    }
+}

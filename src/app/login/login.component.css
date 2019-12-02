@@ -40,3 +40,25 @@
     border-color: rgb(218, 203, 0);
     box-shadow: inset 0 0.5px 0.5px rgba(0, 0, 0, 0.075), 0 0 5px rgba(246, 250, 36, 0.9);
   }
+
+  @media only screen and (max-width: 600px) {
+    .bg-right{
+    background: linear-gradient(326deg, rgba(255,65,65,1) 8%, rgba(255,65,65,1) 13%, rgba(255,255,255,1) 13%, rgb(255, 255, 255) 77%, rgba(255,233,56,1) 77%, rgba(255,233,56,1) 93%, rgba(100,252,112,1) 93%);
+    background-repeat: no-repeat ;
+    background-size: contain;
+    background-position: center;
+
+    }
+    u{
+      color:rgb(0, 0, 0);
+    }
+    i.fa-key::before{
+      color: black;
+    }
+    .text-white{
+      color:rgb(20, 20, 20)!important
+    }
+   
+   
+    
+}
