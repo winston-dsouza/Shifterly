@@ -19,11 +19,11 @@ export class SignupComponent implements OnInit {
 
   constructor(public fb:FormBuilder,public authService: AuthService,public router:Router) {
       this.myForm = this.fb.group({
-        firstName:['',[Validators.required]],
-        lastName:['',[Validators.required]],
+        firstName:['',Validators.required],
+        lastName:['',Validators.required],
         email:['',[Validators.required,Validators.email]],
         password:['',[Validators.required,Validators.minLength(8)]],
-        confirmPassword:['',[Validators.required]]
+        confirmPassword:['',Validators.required ]
       },{
         validators:this.checkIfMatchingPasswords("password","confirmPassword")
       });
