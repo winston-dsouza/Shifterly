@@ -1,6 +1,6 @@
 # Shifterly
 
-Shifterly is a movers and pickers website(Intra City Logistic Website). This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+Shifterly is a Packers and Movers website(Intra City Logistic Website). This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
 ## Development server
 
