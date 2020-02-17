@@ -20,13 +20,13 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDhVmNYg-qoi4pjt2Eh4sjK-lUPs1J5LYM",
-  authDomain: "shifterly-7cb53.firebaseapp.com",
-  databaseURL: "https://shifterly-7cb53.firebaseio.com",
-  projectId: "shifterly-7cb53",
-  storageBucket: "shifterly-7cb53.appspot.com",
-  messagingSenderId: "760805513840",
-  appId: "1:760805513840:web:b59c50a98872a3788772b5"
+  apiKey: "enterFirebaseApiKey",
+  authDomain: "fillTheseFields",
+  databaseURL: "fillTheseFields",
+  projectId: "fillTheseFields",
+  storageBucket: "fillTheseFields",
+  messagingSenderId: "fillTheseFields",
+  appId: "fillTheseFields"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -49,7 +49,7 @@ firebase.initializeApp(firebaseConfig);
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey:"AIzaSyDy29zNWUH7WZKauXjNwbFAFLopsuWhsJo",
+      apiKey:"enterGoogleMapsApiKey",
       libraries: ['places']
     })
   ],
